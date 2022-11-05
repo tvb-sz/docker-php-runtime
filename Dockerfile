@@ -1,7 +1,8 @@
 ARG PHP_VERSION=7.2
 FROM php:$PHP_VERSION-fpm-alpine
 
-LABEL Maintainer="JeaYaNG<jjonline@jjonline.cn>" Description="Nginx & PHP-FPM 8.0 based on Alpine Linux."
+LABEL Maintainer="JeaYang<jjonline@jjonline.cn>" \
+      Description="Nginx & PHP & FPM & Supervisor & Composer based on Alpine Linux support multi PHP version."
 
 # Basic workdir
 WORKDIR /srv
