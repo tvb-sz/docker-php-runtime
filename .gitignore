@@ -1,0 +1,7 @@
+*.ini
+.idea
+vendor
+.DS_Store
+*.pri
+*.pub
+*.log
