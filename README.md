@@ -3,7 +3,7 @@
 * source file at: [https://github.com/jjonline/docker-php-runtime](https://github.com/jjonline/docker-php-runtime)
 * docker image at: [https://hub.docker.com/r/jjonline/docker-php-runtime](https://hub.docker.com/r/jjonline/docker-php-runtime)
 
-Support multi arch and some mainstream version for php, added nginx and supervisor.
+Support multi arch and some mainstream version for php, added nginx and supervisor and preset installed composer2.
 
 * User: `www-data`
 * php: 7.2/7.4/8.0/8.1
@@ -375,3 +375,12 @@ Additional .ini files parsed:
 /etc/nginx
 /etc/nginx/nginx.conf
 ````
+
+## composer
+
+preset composer2 at
+````
+/usr/local/bin/composer
+````
+
+you can run composer command without prefix `/usr/local/bin/`, such as `composer update --no-dev`
