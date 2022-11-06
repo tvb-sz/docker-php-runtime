@@ -1,3 +1,5 @@
+# source file  at: https://github.com/jjonline/docker-php-runtime
+# docker image at: https://hub.docker.com/r/jjonline/docker-php-runtime
 ARG PHP_VERSION=7.2
 FROM php:$PHP_VERSION-fpm-alpine
 
