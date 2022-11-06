@@ -272,7 +272,7 @@ docker run -v xxx:xxx -p xxx:8080 xxxImage www
 
 Start just queue serve like:
 ````
-docker run -v xxx:xxx -p xxxImage queue
+docker run -v xxx:xxx xxxImage queue
 ````
 
 Start just scheduler serve like:
