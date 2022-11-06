@@ -19,7 +19,7 @@ and the full version number of php is the latest repair version of the current s
 
 You can see our [Dockerfile](./Dockerfile) get more detail
 
-| Image                    | PHP Version   | Remark               |
+| Image Tag                | PHP Version   | Remark               |
 |--------------------------|---------------|----------------------|
 | php7.2-fpm-alpine        | Latest PHP7.2 | recommended to use   |
 | php7.2-fpm-alpine-vx.y.z | Latest PHP7.2 | with git release tag |
