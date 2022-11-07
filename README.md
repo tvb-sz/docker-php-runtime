@@ -1,7 +1,7 @@
 # docker-php-runtime
 
-* source file at: [https://github.com/jjonline/docker-php-runtime](https://github.com/jjonline/docker-php-runtime)
-* docker image at: [https://hub.docker.com/r/jjonline/docker-php-runtime](https://hub.docker.com/r/jjonline/docker-php-runtime)
+* source file at: [https://github.com/nmgsz/docker-php-runtime](https://github.com/nmgsz/docker-php-runtime)
+* docker image at: [https://hub.docker.com/r/nmgsz/docker-php-runtime](https://hub.docker.com/r/nmgsz/docker-php-runtime)
 
 Support multi arch and some mainstream version for php, added nginx and supervisor and preset installed composer2.
 
@@ -97,7 +97,7 @@ Example for a Laravel application
 
 File `docker/Dockerfile`
 ````
-FROM jjonline/docker-php-runtime:7.2-fpm-alpine
+FROM nmgsz/docker-php-runtime:7.2-fpm-alpine
 
 # Basic workdir
 WORKDIR /srv/www

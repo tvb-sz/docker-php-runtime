@@ -1,9 +1,9 @@
-# source file  at: https://github.com/jjonline/docker-php-runtime
-# docker image at: https://hub.docker.com/r/jjonline/docker-php-runtime
+# source file  at: https://github.com/nmgsz/docker-php-runtime
+# docker image at: https://hub.docker.com/r/nmgsz/docker-php-runtime
 ARG PHP_VERSION=7.2
 FROM php:$PHP_VERSION-fpm-alpine
 
-LABEL Maintainer="JeaYang<jjonline@jjonline.cn>" \
+LABEL Maintainer="team tvb sz<nmg-sz@tvb.com>" \
       Description="Nginx & PHP & FPM & Supervisor & Composer based on Alpine Linux support multi PHP version."
 
 # Basic workdir

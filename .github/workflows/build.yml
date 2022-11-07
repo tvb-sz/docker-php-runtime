@@ -46,5 +46,5 @@ jobs:
           context: .
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x
           push: true
-          tags: jjonline/docker-php-runtime:${{ matrix.phpVersion }}-fpm-alpine-${{ steps.meta.outputs.version }},jjonline/docker-php-runtime:${{ matrix.phpVersion }}-fpm-alpine
+          tags: nmgsz/docker-php-runtime:${{ matrix.phpVersion }}-fpm-alpine-${{ steps.meta.outputs.version }},nmgsz/docker-php-runtime:${{ matrix.phpVersion }}-fpm-alpine
           build-args: PHP_VERSION=${{ matrix.phpVersion }}
