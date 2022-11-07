@@ -1,4 +1,4 @@
-# source file  at: https://github.com/nmgsz/docker-php-runtime
+# source file  at: https://github.com/tvb-sz/docker-php-runtime
 # docker image at: https://hub.docker.com/r/nmgsz/docker-php-runtime
 ARG PHP_VERSION=7.2
 FROM php:$PHP_VERSION-fpm-alpine
