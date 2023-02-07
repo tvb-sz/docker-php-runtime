@@ -6,7 +6,7 @@
 Support multi arch and some mainstream version for php, added nginx and supervisor and preset installed composer2.
 
 * User: `www-data`
-* php: 7.2/7.4/8.0/8.1
+* php: 7.2/7.4/8.0/8.1/8.2
 * nginx
 * supervisor
 * php-fpm
@@ -19,14 +19,16 @@ and the full version number of php is the latest repair version of the current s
 
 You can see our [Dockerfile](./Dockerfile) get more detail
 
-| Image Tag                | PHP Version   | Remark               |
-|--------------------------|---------------|----------------------|
-| php7.2-fpm-alpine        | Latest PHP7.2 | recommended to use   |
-| php7.2-fpm-alpine-vx.y.z | Latest PHP7.2 | with git release tag |
-| php7.4-fpm-alpine        | Latest PHP7.4 | recommended to use   |
-| php7.4-fpm-alpine-vx.y.z | Latest PHP7.4 | with git release tag |
-| php8.0-fpm-alpine        | Latest PHP8.0 | recommended to use   |
-| php8.0-fpm-alpine-vx.y.z | Latest PHP8.0 | with git release tag |
+| Image Tag                | PHP Version   | Alpine version | Remark               |
+|--------------------------|---------------|----------------|----------------------|
+| php7.2-fpm-alpine        | Latest PHP7.2 | 3.12           | recommended to use   |
+| php7.2-fpm-alpine-vx.y.z | Latest PHP7.2 | 3.12           | with git release tag |
+| php7.4-fpm-alpine        | Latest PHP7.4 | 3.16           | recommended to use   |
+| php7.4-fpm-alpine-vx.y.z | Latest PHP7.4 | 3.16           | with git release tag |
+| php8.0-fpm-alpine        | Latest PHP8.0 | 3.16           | recommended to use   |
+| php8.0-fpm-alpine-vx.y.z | Latest PHP8.0 | 3.16           | with git release tag |
+| php8.1-fpm-alpine        | Latest PHP8.1 | 3.17           | recommended to use   |
+| php8.1-fpm-alpine-vx.y.z | Latest PHP8.1 | 3.17           | with git release tag |
 
 ## Guidance
 
@@ -308,6 +310,7 @@ mbstring
 mysqli
 mysqlnd
 openssl
+pcntl
 pcre
 PDO
 pdo_mysql
