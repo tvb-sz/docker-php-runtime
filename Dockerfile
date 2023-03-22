@@ -12,7 +12,7 @@ WORKDIR /srv
 # Install php extension supervisor and nginx
 RUN apk update && \
 	apk add libpng libpng-dev gmp gmp-dev zlib zlib-dev oniguruma oniguruma-dev libjpeg-turbo-dev libpng-dev freetype-dev libzip libzip-dev libxslt libxslt-dev supervisor nginx bash && \
-	docker-php-ext-configure gd && \
+	docker-php-ext-configure --with-freetype-dir=/usr/lib/ --with-png-dir=/usr/lib/ --with-jpeg-dir=/usr/lib/ --with-gd && \
 	yes "" | pecl install redis && \
 	yes "" | pecl install xlswriter && \
 	docker-php-ext-install -j5 pcntl bcmath gd gmp mbstring mysqli pdo pdo_mysql opcache sockets xsl zip exif && \
