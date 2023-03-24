@@ -12,48 +12,48 @@ jobs:
         phpVersion: [ "5.6", "7.2", "7.4", "8.0", "8.1", "8.2" ]
         include:
           - phpVersion: '5.6'
-            extension_redis_src: 'https://pecl.php.net/get/redis-4.3.0.tgz'
-            gd_opt: '--with-freetype-dir=/usr/lib/ --with-png-dir=/usr/lib/ --with-jpeg-dir=/usr/lib/ --with-zlib-dir --with-xpm-dir --with-vpx-dir --with-gd'
-            install_mysql_extension: 'mysql'
-            install_xlswrite_cmd: 'echo "do not install xlswriter when php version LG 5.0\n"'
-            enable_extension_list: 'redis'
-            support_arch: 'linux/386,linux/amd64,linux/arm/v6,linux/arm64/v8,linux/ppc64le'
+            extRedisSrc: 'https://pecl.php.net/get/redis-4.3.0.tgz'
+            gdOpt: '"--with-freetype-dir=/usr/lib/ --with-png-dir=/usr/lib/ --with-jpeg-dir=/usr/lib/ --with-zlib-dir --with-xpm-dir --with-vpx-dir --with-gd"'
+            installExtMysql: 'mysql'
+            installExtXlswriterCmd: '"echo ''do not install xlswriter when php version LTE 5.0''"'
+            needExtEnableList: 'redis'
+            supportArch: 'linux/386,linux/amd64,linux/arm/v6,linux/arm64/v8,linux/ppc64le'
           - phpVersion: '7.2'
-            extension_redis_src: 'redis'
-            gd_opt: '--with-freetype-dir=/usr/lib/ --with-png-dir=/usr/lib/ --with-jpeg-dir=/usr/lib/ --with-zlib-dir --with-xpm-dir --with-webp-dir --with-gd'
-            install_mysql_extension: ''
-            install_xlswrite_cmd: 'yes "" | pecl install xlswriter'
-            enable_extension_list: 'redis xlswriter'
-            support_arch: 'linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x'
+            extRedisSrc: 'redis'
+            gdOpt: '"--with-freetype-dir=/usr/lib/ --with-png-dir=/usr/lib/ --with-jpeg-dir=/usr/lib/ --with-zlib-dir --with-xpm-dir --with-webp-dir --with-gd"'
+            installExtMysql: ''
+            installExtXlswriterCmd: '''yes "" | pecl install xlswriter'''
+            needExtEnableList: '"redis xlswriter"'
+            supportArch: 'linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x'
           - phpVersion: '7.4'
-            extension_redis_src: 'redis'
+            extRedisSrc: 'redis'
             # https://www.php.net/manual/zh/migration74.other-changes.php#migration74.other-changes.pkg-config
-            gd_opt: '--with-freetype=/usr/lib/ --with-jpeg=/usr/lib/ --with-xpm --with-webp'
-            install_mysql_extension: ''
-            install_xlswrite_cmd: 'yes "" | pecl install xlswriter'
-            enable_extension_list: 'redis xlswriter'
-            support_arch: 'linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x'
+            gdOpt: '"--with-freetype=/usr/lib/ --with-jpeg=/usr/lib/ --with-xpm --with-webp"'
+            installExtMysql: ''
+            installExtXlswriterCmd: '''yes "" | pecl install xlswriter'''
+            needExtEnableList: '"redis xlswriter"'
+            supportArch: 'linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x'
           - phpVersion: '8.0'
-            extension_redis_src: 'redis'
-            gd_opt: '--with-freetype=/usr/lib/ --with-jpeg=/usr/lib/ --with-xpm --with-webp'
-            install_mysql_extension: ''
-            install_xlswrite_cmd: 'yes "" | pecl install xlswriter'
-            enable_extension_list: 'redis xlswriter'
-            support_arch: 'linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x'
+            extRedisSrc: 'redis'
+            gdOpt: '--with-freetype=/usr/lib/ --with-jpeg=/usr/lib/ --with-xpm --with-webp'
+            installExtMysql: ''
+            installExtXlswriterCmd: '''yes "" | pecl install xlswriter'''
+            needExtEnableList: '"redis xlswriter"'
+            supportArch: 'linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x'
           - phpVersion: '8.1'
-            extension_redis_src: 'redis'
-            gd_opt: '--with-freetype=/usr/lib/ --with-jpeg=/usr/lib/ --with-xpm --with-webp'
-            install_mysql_extension: ''
-            install_xlswrite_cmd: 'yes "" | pecl install xlswriter'
-            enable_extension_list: 'redis xlswriter'
-            support_arch: 'linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x'
+            extRedisSrc: 'redis'
+            gdOpt: '"--with-freetype=/usr/lib/ --with-jpeg=/usr/lib/ --with-xpm --with-webp"'
+            installExtMysql: ''
+            installExtXlswriterCmd: '''yes "" | pecl install xlswriter'''
+            needExtEnableList: '"redis xlswriter"'
+            supportArch: 'linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x'
           - phpVersion: '8.2'
-            extension_redis_src: 'redis'
-            gd_opt: '--with-freetype=/usr/lib/ --with-jpeg=/usr/lib/ --with-xpm --with-webp'
-            install_mysql_extension: ''
-            install_xlswrite_cmd: 'yes "" | pecl install xlswriter'
-            enable_extension_list: 'redis xlswriter'
-            support_arch: 'linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x'
+            extRedisSrc: 'redis'
+            gdOpt: '"--with-freetype=/usr/lib/ --with-jpeg=/usr/lib/ --with-xpm --with-webp"'
+            installExtMysql: ''
+            installExtXlswriterCmd: '''yes "" | pecl install xlswriter'''
+            needExtEnableList: '"redis xlswriter"'
+            supportArch: 'linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -88,13 +88,13 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          platforms: ${{ matrix.support_arch }}
+          platforms: ${{ matrix.supportArch }}
           push: true
           tags: jjonline/docker-php-runtime:${{ matrix.phpVersion }}-fpm-alpine-${{ steps.meta.outputs.version }},jjonline/docker-php-runtime:${{ matrix.phpVersion }}-fpm-alpine
           build-args: |
-            PHP_VERSION=${{ matrix.phpVersion }}
-            EXTENSION_REDIS_SRC=${{ matrix.extension_redis_src }}
-            GD_OPT=${{ matrix.gd_opt }}
-            INSTALL_MYSQL_EXTENSION=${{ matrix.phpVersion }}
-            INSTALL_XLSWRITER_CMD=${{ matrix.install_xlswrite_cmd }}
-            ENABLE_EXTENSION_LIST=${{ matrix.enable_extension_list }}
+            phpVersion=${{ matrix.phpVersion }}
+            extRedisSrc=${{ matrix.extRedisSrc }}
+            gdOpt=${{ matrix.gdOpt }}
+            installExtMysql=${{ matrix.installExtMysql }}
+            needExtEnableList=${{ matrix.needExtEnableList }}
+            installExtXlswriterCmd=${{ matrix.installExtXlswriterCmd }}

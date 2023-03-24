@@ -1,29 +1,28 @@
 # source file  at: https://github.com/tvb-sz/docker-php-runtime
 # docker image at: https://hub.docker.com/r/nmgsz/docker-php-runtime
 
-ARG PHP_VERSION=7.2
+FROM php:$phpVersion-fpm-alpine
+
 # define install Redis extension src
-ARG EXTENSION_REDIS_SRC=redis
+ARG extRedisSrc='redis'
 # define php extension GD build Option
-ARG GD_OPT=''
+ARG gdOpt=''
 # define install or not install php extension xlswriter
-ARG INSTALL_MYSQL_EXTENSION='mysql'
+ARG installExtMysql='mysql'
 # define install or not install php extension xlswriter
-ARG INSTALL_XLSWRITER_CMD='yes "" | pecl install xlswriter'
-# define enable php extension
-ARG ENABLE_EXTENSION_LIST='redis xlswriter'
+ARG installExtXlswriterCmd='yes "" | pecl install xlswriter'
+# define need enable extension list
+ARG needExtEnableList='redis'
 
-FROM php:$PHP_VERSION-fpm-alpine
-
-LABEL Maintainer="team tvb sz<nmg-sz@tvb.com>" \
+LABEL Maintainer="JeaYang<jjonline@jjonline.cn>" \
       Description="Nginx & PHP & FPM & Supervisor & Composer based on Alpine Linux support multi PHP version."
 
 # Basic workdir
 WORKDIR /srv
 
-# Install php extension supervisor and nginx
+    # ① install lib and software
 RUN apk update && \
-	apk add libpng libpng-dev \
+    apk add libpng libpng-dev \
     gmp gmp-dev \
     zlib zlib-dev  \
     oniguruma oniguruma-dev  \
@@ -34,13 +33,14 @@ RUN apk update && \
     libvpx libvpx-dev \
     libwebp libwebp-dev \
     supervisor nginx bash && \
-	docker-php-ext-configure gd $GD_OPT && \
-	yes "" | pecl install $EXTENSION_REDIS_SRC && \
-	$INSTALL_XLSWRITER_CMD && \
-	docker-php-ext-install -j5 pcntl bcmath gd gmp  \
-    mbstring mysqli $INSTALL_MYSQL_EXTENSION  \
-    pdo pdo_mysql opcache sockets xsl zip exif && \
-	docker-php-ext-enable $ENABLE_EXTENSION_LIST && \
-	rm -rf /var/cache/apk/* && \
-	rm -rf /etc/nginx/sites-enabled/* && \
-	curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    # ② configure and install pecl extension
+    docker-php-ext-configure gd $gdOpt && \
+    yes "" | pecl install $extRedisSrc && \
+	$installExtXlswriterCmd && \
+    # ③ install built-in extension and enable some ext extension
+    docker-php-ext-install -j5 pcntl bcmath gd gmp mbstring $installExtMysql mysqli pdo pdo_mysql opcache sockets xsl zip exif && \
+    docker-php-ext-enable $needExtEnableList && \
+    # ④ install composer2
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+    # ⑤ clean
+    rm -rf /var/cache/apk/* && rm -rf /etc/nginx/sites-enabled/*

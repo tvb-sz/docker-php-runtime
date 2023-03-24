@@ -6,7 +6,7 @@
 Support multi arch and some mainstream version for php, added nginx and supervisor and preset installed composer2.
 
 * User: `www-data`
-* php: 7.2/7.4/8.0/8.1/8.2
+* php: 5.6/7.2/7.4/8.0/8.1/8.2
 * nginx
 * supervisor
 * php-fpm
@@ -21,6 +21,8 @@ You can see our [Dockerfile](./Dockerfile) get more detail
 
 | Image Tag                | PHP Version   | Alpine version | Remark               |
 |--------------------------|---------------|----------------|----------------------|
+| php5.6-fpm-alpine        | Latest PHP5.6 | 3.8            | recommended to use   |
+| php5.6-fpm-alpine-vx.y.z | Latest PHP5.6 | 3.8            | with git release tag |
 | php7.2-fpm-alpine        | Latest PHP7.2 | 3.12           | recommended to use   |
 | php7.2-fpm-alpine-vx.y.z | Latest PHP7.2 | 3.12           | with git release tag |
 | php7.4-fpm-alpine        | Latest PHP7.4 | 3.16           | recommended to use   |
@@ -29,6 +31,8 @@ You can see our [Dockerfile](./Dockerfile) get more detail
 | php8.0-fpm-alpine-vx.y.z | Latest PHP8.0 | 3.16           | with git release tag |
 | php8.1-fpm-alpine        | Latest PHP8.1 | 3.17           | recommended to use   |
 | php8.1-fpm-alpine-vx.y.z | Latest PHP8.1 | 3.17           | with git release tag |
+| php8.2-fpm-alpine        | Latest PHP8.2 | 3.17           | recommended to use   |
+| php8.2-fpm-alpine-vx.y.z | Latest PHP8.2 | 3.17           | with git release tag |
 
 ## Guidance
 
@@ -52,6 +56,14 @@ In nginx config is that:
 ````
 user www-data;
 ````
+
+### PHP
+
+No default `php.ini` config file support,
+but example file can find at:
+
+* `/usr/local/etc/php/php.ini-development`
+* `/usr/local/etc/php/php.ini-production`
 
 ### PHP-FPM
 
@@ -99,7 +111,7 @@ Example for a Laravel application
 
 File `docker/Dockerfile`
 ````
-FROM nmgsz/docker-php-runtime:7.2-fpm-alpine
+FROM jjonline/docker-php-runtime:7.2-fpm-alpine
 
 # Basic workdir
 WORKDIR /srv/www
