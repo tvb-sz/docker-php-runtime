@@ -15,7 +15,7 @@ jobs:
             extRedisSrc: 'https://pecl.php.net/get/redis-4.3.0.tgz'
             gdOpt: '"--with-freetype-dir=/usr/lib/ --with-png-dir=/usr/lib/ --with-jpeg-dir=/usr/lib/ --with-zlib-dir --with-xpm-dir --with-vpx-dir --with-gd"'
             installExtMysql: 'mysql'
-            installExtXlswriterCmd: '"echo ''do not install xlswriter when php version LTE 5.0''"'
+            installExtXlswriterCmd: '''echo "do not install xlswriter when php version LTE 5.0"'''
             needExtEnableList: 'redis'
             supportArch: 'linux/386,linux/amd64,linux/arm/v6,linux/arm64/v8,linux/ppc64le'
           - phpVersion: '7.2'
