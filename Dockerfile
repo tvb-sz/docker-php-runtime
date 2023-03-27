@@ -1,6 +1,11 @@
 # source file  at: https://github.com/tvb-sz/docker-php-runtime
 # docker image at: https://hub.docker.com/r/nmgsz/docker-php-runtime
 
+# define php version args
+# Be used to base Image need before FROM
+# if args used after FROM, should repeat define
+ARG phpVersion='7.2'
+
 FROM php:$phpVersion-fpm-alpine
 
 # define install Redis extension src
@@ -9,12 +14,8 @@ ARG extRedisSrc='redis'
 ARG gdOpt=''
 # define install or not install php extension xlswriter
 ARG installExtMysql='mysql'
-# define install or not install php extension xlswriter
-ARG installExtXlswriterCmd='yes "" | pecl install xlswriter'
-# define need enable extension list
-ARG needExtEnableList='redis'
 
-LABEL Maintainer="JeaYang<jjonline@jjonline.cn>" \
+LABEL Maintainer="team tvb sz<nmg-sz@tvb.com>" \
       Description="Nginx & PHP & FPM & Supervisor & Composer based on Alpine Linux support multi PHP version."
 
 # Basic workdir
@@ -32,14 +33,14 @@ RUN apk update && \
     libxpm libxpm-dev \
     libvpx libvpx-dev \
     libwebp libwebp-dev \
+    linux-headers \
     supervisor nginx bash && \
     # ② configure and install pecl extension
     docker-php-ext-configure gd $gdOpt && \
     yes "" | pecl install $extRedisSrc && \
-	$installExtXlswriterCmd && \
     # ③ install built-in extension and enable some ext extension
     docker-php-ext-install -j5 pcntl bcmath gd gmp mbstring $installExtMysql mysqli pdo pdo_mysql opcache sockets xsl zip exif && \
-    docker-php-ext-enable $needExtEnableList && \
+    docker-php-ext-enable redis && \
     # ④ install composer2
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     # ⑤ clean

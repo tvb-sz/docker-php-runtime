@@ -111,7 +111,7 @@ Example for a Laravel application
 
 File `docker/Dockerfile`
 ````
-FROM jjonline/docker-php-runtime:7.2-fpm-alpine
+FROM nmgsz/docker-php-runtime:7.2-fpm-alpine
 
 # Basic workdir
 WORKDIR /srv/www
@@ -340,7 +340,6 @@ SPL
 sqlite3
 standard
 tokenizer
-xlswriter
 xml
 xmlreader
 xmlwriter
