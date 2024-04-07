@@ -25,10 +25,11 @@ WORKDIR /srv
 RUN apk update && \
     apk add libpng libpng-dev \
     gmp gmp-dev \
-    zlib zlib-dev  \
-    oniguruma oniguruma-dev  \
-    libjpeg-turbo-dev libpng-dev  \
-    freetype-dev libzip libzip-dev  \
+    zlib zlib-dev \
+    icu icu-dev \
+    oniguruma oniguruma-dev \
+    libjpeg-turbo-dev libpng-dev \
+    freetype-dev libzip libzip-dev \
     libxslt libxslt-dev \
     libxpm libxpm-dev \
     libvpx libvpx-dev \
@@ -39,7 +40,7 @@ RUN apk update && \
     docker-php-ext-configure gd $gdOpt && \
     yes "" | pecl install $extRedisSrc && \
     # ③ install built-in extension and enable some ext extension
-    docker-php-ext-install -j5 pcntl bcmath gd gmp mbstring $installExtMysql mysqli pdo pdo_mysql opcache sockets xsl zip exif && \
+    docker-php-ext-install -j5 pcntl intl soap bcmath gd gmp mbstring $installExtMysql mysqli pdo pdo_mysql opcache sockets xsl zip exif && \
     docker-php-ext-enable redis && \
     # ④ install composer2
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
