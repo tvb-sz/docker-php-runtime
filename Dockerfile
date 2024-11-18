@@ -6,7 +6,7 @@
 # if args used after FROM, should repeat define
 ARG phpVersion='7.2'
 
-FROM php:$phpVersion-fpm-alpine
+FROM php:${phpVersion}-fpm-alpine
 
 # define install Redis extension src
 ARG extRedisSrc='redis'
@@ -37,10 +37,10 @@ RUN apk update && \
     linux-headers \
     supervisor nginx bash && \
     # ② configure and install pecl extension
-    docker-php-ext-configure gd $gdOpt && \
-    yes "" | pecl install $extRedisSrc && \
+    docker-php-ext-configure gd ${gdOpt} && \
+    yes "" | pecl install ${extRedisSrc} && \
     # ③ install built-in extension and enable some ext extension
-    docker-php-ext-install -j5 pcntl intl soap bcmath gd gmp mbstring $installExtMysql mysqli pdo pdo_mysql opcache sockets xsl zip exif && \
+    docker-php-ext-install -j5 pcntl intl soap bcmath gd gmp mbstring ${installExtMysql} mysqli pdo pdo_mysql opcache sockets xsl zip exif && \
     docker-php-ext-enable redis && \
     # ④ install composer2
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
