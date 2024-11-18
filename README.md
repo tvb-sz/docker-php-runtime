@@ -6,7 +6,7 @@
 Support multi arch and some mainstream version for php, added nginx and supervisor and preset installed composer2.
 
 * User: `www-data`
-* php: 5.6/7.2/7.4/8.0/8.1/8.2
+* php: 5.6/7.2/7.4/8.0/8.1/8.2/8.3
 * nginx
 * supervisor
 * php-fpm
@@ -29,10 +29,12 @@ You can see our [Dockerfile](./Dockerfile) get more detail
 | php7.4-fpm-alpine-vx.y.z | Latest PHP7.4 | 3.16           | with git release tag |
 | php8.0-fpm-alpine        | Latest PHP8.0 | 3.16           | recommended to use   |
 | php8.0-fpm-alpine-vx.y.z | Latest PHP8.0 | 3.16           | with git release tag |
-| php8.1-fpm-alpine        | Latest PHP8.1 | 3.17           | recommended to use   |
-| php8.1-fpm-alpine-vx.y.z | Latest PHP8.1 | 3.17           | with git release tag |
-| php8.2-fpm-alpine        | Latest PHP8.2 | 3.17           | recommended to use   |
-| php8.2-fpm-alpine-vx.y.z | Latest PHP8.2 | 3.17           | with git release tag |
+| php8.1-fpm-alpine        | Latest PHP8.1 | 3.20           | recommended to use   |
+| php8.1-fpm-alpine-vx.y.z | Latest PHP8.1 | 3.20           | with git release tag |
+| php8.2-fpm-alpine        | Latest PHP8.2 | 3.20           | recommended to use   |
+| php8.2-fpm-alpine-vx.y.z | Latest PHP8.2 | 3.20           | with git release tag |
+| php8.3-fpm-alpine        | Latest PHP8.3 | 3.20           | recommended to use   |
+| php8.3-fpm-alpine-vx.y.z | Latest PHP8.3 | 3.20           | with git release tag |
 
 ## Guidance
 
