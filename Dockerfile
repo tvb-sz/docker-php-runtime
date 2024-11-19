@@ -12,8 +12,10 @@ FROM php:${phpVersion}-fpm-alpine
 ARG extRedisSrc='redis'
 # define php extension GD build Option
 ARG gdOpt=''
-# define install or not install php extension xlswriter
+# define install or not install php extension mysql
 ARG installExtMysql='mysql'
+# define install or not install php extension mbstring, as php8.3 default install this extension
+ARG installExtMbString='mbstring'
 
 LABEL Maintainer="team tvb sz<nmg-sz@tvb.com>" \
       Description="Nginx & PHP & FPM & Supervisor & Composer based on Alpine Linux support multi PHP version."
@@ -40,7 +42,7 @@ RUN apk update && \
     docker-php-ext-configure gd ${gdOpt} && \
     yes "" | pecl install ${extRedisSrc} && \
     # ③ install built-in extension and enable some ext extension
-    docker-php-ext-install -j5 pcntl intl soap bcmath gd gmp mbstring ${installExtMysql} mysqli pdo pdo_mysql opcache sockets xsl zip exif && \
+    docker-php-ext-install -j5 pcntl intl soap bcmath gd gmp ${installExtMbString} ${installExtMysql} mysqli pdo pdo_mysql opcache sockets xsl zip exif && \
     docker-php-ext-enable redis && \
     # ④ install composer2
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
