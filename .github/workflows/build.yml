@@ -9,7 +9,7 @@ jobs:
   build-and-release:
     strategy:
       matrix:
-        phpVersion: [ "5.6", "7.2", "7.4", "8.0", "8.1", "8.2", "8.3" ]
+        phpVersion: [ "5.6", "7.2", "7.4", "8.0", "8.1", "8.2", "8.3", "8.4" ]
         include:
           - phpVersion: '5.6'
             extRedisSrc: 'https://pecl.php.net/get/redis-4.3.0.tgz'
@@ -51,6 +51,12 @@ jobs:
           - phpVersion: '8.3'
             extRedisSrc: 'redis'
             # https://github.com/docker-library/php/blob/910674b44ecb630c9831d3bdf4f82aa2adb6bfe5/8.3/alpine3.20/zts/Dockerfile#L136
+            installExtMbString: ''
+            gdOpt: '--with-freetype=/usr/lib/ --with-jpeg=/usr/lib/ --with-xpm --with-webp'
+            installExtMysql: ''
+            supportArch: 'linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x'
+          - phpVersion: '8.4'
+            extRedisSrc: 'redis'
             installExtMbString: ''
             gdOpt: '--with-freetype=/usr/lib/ --with-jpeg=/usr/lib/ --with-xpm --with-webp'
             installExtMysql: ''
@@ -97,3 +103,4 @@ jobs:
             extRedisSrc=${{ matrix.extRedisSrc }}
             gdOpt=${{ matrix.gdOpt }}
             installExtMysql=${{ matrix.installExtMysql }}
+            installExtMbString=${{ matrix.installExtMbString }}

@@ -6,7 +6,7 @@
 Support multi arch and some mainstream version for php, added nginx and supervisor and preset installed composer2.
 
 * User: `www-data`
-* php: 5.6/7.2/7.4/8.0/8.1/8.2/8.3
+* php: 5.6/7.2/7.4/8.0/8.1/8.2/8.3/8.4
 * nginx
 * supervisor
 * php-fpm
@@ -35,6 +35,8 @@ You can see our [Dockerfile](./Dockerfile) get more detail
 | php8.2-fpm-alpine-vx.y.z | Latest PHP8.2 | 3.20           | with git release tag |
 | php8.3-fpm-alpine        | Latest PHP8.3 | 3.20           | recommended to use   |
 | php8.3-fpm-alpine-vx.y.z | Latest PHP8.3 | 3.20           | with git release tag |
+| php8.4-fpm-alpine        | Latest PHP8.4 | 3.20           | recommended to use   |
+| php8.4-fpm-alpine-vx.y.z | Latest PHP8.4 | 3.20           | with git release tag |
 
 ## Guidance
 
